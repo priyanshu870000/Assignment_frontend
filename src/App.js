@@ -48,20 +48,20 @@ function App() {
 
 
   const handleSignup = async () => {
-    axios.post('https://backend-assignment-i1pd.onrender.com/signup', { email, password })
-      .then(response => {
-        setToken(response.data.token);
-        setDataInCookie("token", response.data.token);
-        setMessage(response.data.message);
-        setShowLoginForm(false);
-        setAllData([]);
-        blankData();
-        await handleShowData(response.data.token);
-      })
-      .catch(error => {
-        setMessage(error.response.data.message);
-      });
-  };
+  try {
+    const response = await axios.post('http://localhost:3001/signup', { email, password });
+    setToken(response.data.token);
+    setDataInCookie("token", response.data.token);
+    setMessage(response.data.message);
+    setShowLoginForm(false);
+    setAllData([]);
+    await blankData();
+    await handleShowData(response.data.token);
+  } catch (error) {
+    console.log(error.response)
+    setMessage(error.response.data.message);
+  }
+};
 
   const handleLogin = async () => {
     try {
