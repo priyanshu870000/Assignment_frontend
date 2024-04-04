@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h1, h2 {
+    margin-top: 0;
+  }
+
+  input[type="text"], input[type="password"], button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  p {
+    margin: 10px 0;
+    color: #555;
+  }
+
+  table {
+    width: 100%;
+    height: 100%;
+  }
+
+.message-popup {
+  background-color: #f0f0f0; /* Background color */
+  color: #333; /* Text color */
+  padding: 10px; /* Padding */
+  border: 1px solid #ccc; /* Border */
+  border-radius: 5px; /* Border radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+  margin-bottom: 10px; /* Margin bottom */
+  /* Additional styles as needed */
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  display: inline-block; /* Allow the width to adjust dynamically */
+  max-width: fit-content; /* Set maximum width to fit content */
+  transition: max-height 0.3s ease;
+  text-align: right;
+}
+
+.message-popup.hidden {
+  max-height: 0; /* Slide up and hide */
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
