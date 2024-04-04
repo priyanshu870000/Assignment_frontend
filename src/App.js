@@ -49,7 +49,7 @@ function App() {
 
   const handleSignup = async () => {
   try {
-    const response = await axios.post('http://localhost:3001/signup', { email, password });
+    const response = await axios.post('https://backend-assignment-i1pd.onrender.com/signup', { email, password });
     setToken(response.data.token);
     setDataInCookie("token", response.data.token);
     setMessage(response.data.message);
@@ -65,7 +65,7 @@ function App() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/login', { email, password });
+      const response = await axios.post('https://backend-assignment-i1pd.onrender.com/login', { email, password });
       setToken(response.data.token); 
       setDataInCookie("token", response.data.token);
       setMessage(response.data.message);
@@ -87,7 +87,7 @@ function App() {
 
   const handleShowData = async (token) => {
     try {
-      const response = await axios.get('http://localhost:3001/showdata', {
+      const response = await axios.get('https://backend-assignment-i1pd.onrender.com/showdata', {
         params: { email },
         headers: { Authorization: `${token}` } // Include token in headers
       });
@@ -107,7 +107,7 @@ function App() {
       task_email: email
     };
 
-    axios.post('http://localhost:3001/create-task', formData, {
+    axios.post('https://backend-assignment-i1pd.onrender.com/create-task', formData, {
       headers: { Authorization: `${token}` } // Include token in headers
     })
       .then(response => {
@@ -122,7 +122,7 @@ function App() {
   const handleEdit = (id, type) => {
     setEdit(id);
     if (type==="save") {
-      axios.put('http://localhost:3001/edit', {
+      axios.put('https://backend-assignment-i1pd.onrender.com/edit', {
         id,
         name: taskNameEdit,
         desc: taskDescEdit,
@@ -143,7 +143,7 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    axios.delete('http://localhost:3001/delete', {
+    axios.delete('https://backend-assignment-i1pd.onrender.com/delete', {
       params: { id },
       headers: { Authorization: `${token}` } // Include token in headers
     })
