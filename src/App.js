@@ -43,6 +43,7 @@ function App() {
         setDataInCookie("token", response.data.token);
         setMessage(response.data.message);
         setShowLoginForm(false);
+        setAllData("");
       })
       .catch(error => {
         setMessage(error.response.data.message);
