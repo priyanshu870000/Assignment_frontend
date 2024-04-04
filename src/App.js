@@ -36,6 +36,17 @@ function App() {
     }
   }, [message]);
 
+
+  const blankData = () => {
+ setTaskName("");
+ setTaskDesc("");
+ setTaskStatus("");
+ setTaskNameEdit("");
+ setTaskDescEdit("");
+ stsetTaskStatusEdit("");
+  };
+
+
   const handleSignup = async () => {
     axios.post('https://backend-assignment-i1pd.onrender.com/signup', { email, password })
       .then(response => {
@@ -43,7 +54,9 @@ function App() {
         setDataInCookie("token", response.data.token);
         setMessage(response.data.message);
         setShowLoginForm(false);
-        setAllData([])
+        setAllData([]);
+        blankData();
+        await handleShowData(response.data.token);
       })
       .catch(error => {
         setMessage(error.response.data.message);
@@ -57,6 +70,7 @@ function App() {
       setDataInCookie("token", response.data.token);
       setMessage(response.data.message);
       setShowLoginForm(false);
+      blankData();
       await handleShowData(response.data.token); 
     } catch (error) {
       setMessage('Invalid email or password');
